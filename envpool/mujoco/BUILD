@@ -42,6 +42,7 @@ cc_library(
     name = "mujoco_gym_env",
     hdrs = [
         "gym/ant.h",
+        "gym/antmaze.h",
         "gym/half_cheetah.h",
         "gym/hopper.h",
         "gym/humanoid.h",
@@ -56,6 +57,7 @@ cc_library(
     ],
     data = [
         ":gen_mujoco_gym_xml",
+        "gym/antmaze-umaze.xml"
     ],
     deps = [
         "//envpool/core:async_envpool",

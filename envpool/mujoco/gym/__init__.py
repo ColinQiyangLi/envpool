@@ -16,6 +16,8 @@
 from envpool.mujoco.mujoco_gym_envpool import (
   _GymAntEnvPool,
   _GymAntEnvSpec,
+  _GymAntMazeEnvPool,
+  _GymAntMazeEnvSpec,
   _GymHalfCheetahEnvPool,
   _GymHalfCheetahEnvSpec,
   _GymHopperEnvPool,
@@ -38,6 +40,10 @@ from envpool.mujoco.mujoco_gym_envpool import (
   _GymWalker2dEnvSpec,
 )
 from envpool.python.api import py_env
+
+
+(GymAntMazeEnvSpec, GymAntMazeDMEnvPool, GymAntMazeGymEnvPool,
+ GymAntMazeGymnasiumEnvPool) = py_env(_GymAntMazeEnvSpec, _GymAntMazeEnvPool)
 
 (GymAntEnvSpec, GymAntDMEnvPool, GymAntGymEnvPool,
  GymAntGymnasiumEnvPool) = py_env(_GymAntEnvSpec, _GymAntEnvPool)
@@ -93,6 +99,10 @@ from envpool.python.api import py_env
 ) = py_env(_GymWalker2dEnvSpec, _GymWalker2dEnvPool)
 
 __all__ = [
+  "GymAntMazeEnvSpec",
+  "GymAntMazeDMEnvPool",
+  "GymAntMazeGymEnvPool",
+  "GymnasiumAntMazeGymEnvPool",
   "GymAntEnvSpec",
   "GymAntDMEnvPool",
   "GymAntGymEnvPool",

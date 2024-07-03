@@ -16,6 +16,8 @@
 from envpool.registration import register
 
 gym_mujoco_envs = [
+  ("AntMaze", "v3", False, 1000),
+  ("AntMaze", "v4", True, 1000),
   ("Ant", "v3", False, 1000),
   ("Ant", "v4", True, 1000),
   ("HalfCheetah", "v3", False, 1000),

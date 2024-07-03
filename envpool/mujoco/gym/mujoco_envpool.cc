@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "envpool/core/py_envpool.h"
+#include "envpool/mujoco/gym/antmaze.h"
 #include "envpool/mujoco/gym/ant.h"
 #include "envpool/mujoco/gym/half_cheetah.h"
 #include "envpool/mujoco/gym/hopper.h"
@@ -24,6 +25,9 @@
 #include "envpool/mujoco/gym/reacher.h"
 #include "envpool/mujoco/gym/swimmer.h"
 #include "envpool/mujoco/gym/walker2d.h"
+
+using GymAntMazeEnvSpec = PyEnvSpec<mujoco_gym::AntMazeEnvSpec>;
+using GymAntMazeEnvPool = PyEnvPool<mujoco_gym::AntMazeEnvPool>;
 
 using GymAntEnvSpec = PyEnvSpec<mujoco_gym::AntEnvSpec>;
 using GymAntEnvPool = PyEnvPool<mujoco_gym::AntEnvPool>;
@@ -64,6 +68,7 @@ using GymWalker2dEnvPool = PyEnvPool<mujoco_gym::Walker2dEnvPool>;
 
 PYBIND11_MODULE(mujoco_gym_envpool, m) {
   REGISTER(m, GymAntEnvSpec, GymAntEnvPool)
+  REGISTER(m, GymAntMazeEnvSpec, GymAntMazeEnvPool)
   REGISTER(m, GymHalfCheetahEnvSpec, GymHalfCheetahEnvPool)
   REGISTER(m, GymHopperEnvSpec, GymHopperEnvPool)
   REGISTER(m, GymHumanoidEnvSpec, GymHumanoidEnvPool)
