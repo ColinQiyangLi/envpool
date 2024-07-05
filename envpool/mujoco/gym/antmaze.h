@@ -32,7 +32,7 @@ class AntMazeEnvFns {
  public:
   static decltype(auto) DefaultConfig() {
     return MakeDict(
-        "reset_noise_scale"_.Bind(0.1), "frame_skip"_.Bind(5),
+        "frame_skip"_.Bind(5),
         "post_constraint"_.Bind(true));
   }
   template <typename Config>
@@ -61,9 +61,8 @@ class AntMazeEnv : public Env<AntMazeEnvSpec>, public MujocoEnv {
                   spec.config["frame_skip"_], spec.config["post_constraint"_],
                   spec.config["max_episode_steps"_]),
         id_torso_(mj_name2id(model_, mjOBJ_XBODY, "torso")),
-        dist_qpos_(-spec.config["reset_noise_scale"_],
-                   spec.config["reset_noise_scale"_]),
-        dist_qvel_(0, spec.config["reset_noise_scale"_]) {}
+        dist_qpos_(-1.0, 1.0),
+        dist_qvel_(0, 1.0) {}
 
   void MujocoResetModel() override {
     for (int i = 0; i < model_->nq; ++i) {
